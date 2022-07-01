@@ -8,6 +8,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment ,incrementByAmount} from './reducers/Dataslice'
+
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -53,17 +56,21 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 const AddOrder = () => {
   const [state, setState] = useState({ count: 0 });
-  const increment = () => {
+  const increments = () => {
     setState({
       count: state.count + 1
     });
   };
-  const decrement = () => {
+  const decrements = () => {
     setState({
       count: state.count - 1
     });
   };
-  const OnbuybtnHandle = () => {};
+  const dispatch = useDispatch()
+  const OnbuybtnHandle = () => {
+    dispatch(increment())
+    dispatch (incrementByAmount(100))
+  };
 
   return (
     <div>
@@ -91,11 +98,11 @@ const AddOrder = () => {
               {/* <StyledTableCell align="center">Ganesh</StyledTableCell> */}
               <StyledTableCell align="center">ABC</StyledTableCell>
               <StyledTableCell align="center">
-                <IconButton aria-label="decrement" onClick={decrement}>
+                <IconButton aria-label="decrement" onClick={decrements}>
                   <RemoveSharpIcon />
                 </IconButton>
                 <span>{state.count}</span>
-                <IconButton aria-label="increment" onClick={increment}>
+                <IconButton aria-label="increment" onClick={increments}>
                   <AddBoxSharpIcon />
                 </IconButton>
               </StyledTableCell>
@@ -103,7 +110,7 @@ const AddOrder = () => {
               <StyledTableCell align="center">1200</StyledTableCell>
               <StyledTableCell align="center">
                 <Stack direction="row" spacing={1}>
-                  <Button variant="contained" onClick={OnbuybtnHandle}>
+                  <Button variant="contained"   onClick={OnbuybtnHandle}>
                     Buy
                   </Button>
                 </Stack>

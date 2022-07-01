@@ -1,6 +1,7 @@
 import * as React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import { useSelector } from 'react-redux'
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -16,6 +17,9 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 
 export default function Header() {
+
+  const num = useSelector((state) => state.Data.value)
+  console.log(num)
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -55,6 +59,7 @@ export default function Header() {
             </IconButton>
           </Tooltip>
         </Box>
+        <AddShoppingCartIcon/><label>{num}</label>
         <Menu
           anchorEl={anchorEl}
           id="account-menu"
@@ -90,6 +95,7 @@ export default function Header() {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
+
           <MenuItem>
             <Avatar /> Profile
           </MenuItem>

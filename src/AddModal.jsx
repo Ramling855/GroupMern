@@ -1,12 +1,8 @@
 import { Button, Modal } from "antd";
-import { Form, Input, Select } from "antd";
+import { Form, Input} from "antd";
 import { useState } from "react";
 // import "antd/dist/antd.css";
-import EditIcon from "@mui/icons-material/Edit";
 
-import TextField from "@mui/material/TextField";
-
-const { Option } = Select;
 const layout = {
   labelCol: {
     span: 8

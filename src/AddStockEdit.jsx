@@ -1,12 +1,9 @@
 import { Button, Modal } from "antd";
-import { Form, Input, Select } from "antd";
+import { Form, Input } from "antd";
 import { useState } from "react";
 import "antd/dist/antd.css";
 import EditIcon from "@mui/icons-material/Edit";
 
-import TextField from "@mui/material/TextField";
-
-const { Option } = Select;
 const layout = {
   labelCol: {
     span: 8
@@ -39,26 +36,26 @@ const AddStockEdit = () => {
   };
   const [form] = Form.useForm();
 
-  const onGenderChange = (value) => {
-    switch (value) {
-      case "male":
-        form.setFieldsValue({
-          note: "Hi, man!"
-        });
-        return;
+  // const onGenderChange = (value) => {
+  //   switch (value) {
+  //     case "male":
+  //       form.setFieldsValue({
+  //         note: "Hi, man!"
+  //       });
+  //       return;
 
-      case "female":
-        form.setFieldsValue({
-          note: "Hi, lady!"
-        });
-        return;
+  //     case "female":
+  //       form.setFieldsValue({
+  //         note: "Hi, lady!"
+  //       });
+  //       return;
 
-      case "other":
-        form.setFieldsValue({
-          note: "Hi there!"
-        });
-    }
-  };
+  //     case "other":
+  //       form.setFieldsValue({
+  //         note: "Hi there!"
+  //       });
+  //   }
+  // };
 
   const onFinish = (values) => {
     console.log(values);
